@@ -21,9 +21,12 @@
 3. **Créer un environnement virtuel :**  
    Créez un environnement virtuel pour isoler vos dépendances :  
    ```bash
-   python -m venv nom_de_votre_environnement
+    python -m venv nom_de_votre_environnement
    ```
-
+   Activer environemment 
+    ```bash
+        nom_de_votre_environnement\Scripts\activate.bat
+    ```
 **Important :**  
 Avant de faire le push, n'oubliez pas de geler votre environnement dans le fichier `requirements.txt`. Cela permettra d'exploiter votre code plus facilement par la suite. Utilisez la commande suivante :  
 ```bash

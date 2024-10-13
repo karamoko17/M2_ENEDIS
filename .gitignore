@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+perfEnergetique/
 
 # Spyder project settings
 .spyderproject
