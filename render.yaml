@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: flask-server
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: STREAMLIT_SERVER_PORT
+        value: "8501"
+  - type: worker
+    name: streamlit-app
+    env: python
+    plan: free
+    # buildCommand: "pip install -r requirements.txt"
+    startCommand: "streamlit run streamlit_app.py"
