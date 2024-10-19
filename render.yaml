@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: flask-server
+    name: performance_Energetique_server
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
@@ -9,8 +9,8 @@ services:
       - key: STREAMLIT_SERVER_PORT
         value: "8501"
   - type: worker
-    name: streamlit-app
+    name: performance_Energetique_app
     env: python
     plan: free
-    # buildCommand: "pip install -r requirements.txt"
+    buildCommand: "pip install -r requirements.txt"
     startCommand: "streamlit run streamlit_app.py"
