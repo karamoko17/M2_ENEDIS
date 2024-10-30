@@ -128,6 +128,8 @@ ENV/
 env.bak/
 venv.bak/
 perfEnergetique/
+performanceEnergetique/
+Data/
 
 # Spyder project settings
 .spyderproject
