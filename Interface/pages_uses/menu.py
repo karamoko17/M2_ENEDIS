@@ -10,6 +10,8 @@ def show_menu():
         st.session_state.page = 'Cartographie'
     if st.sidebar.button("📊 Prédiction prix de vente"):
         st.session_state.page = 'Prédiction'
+    if st.sidebar.button("📊 Prediction prix"):
+        st.session_state.page = 'regression'
     if st.sidebar.button("📈 Évolution"):
         st.session_state.page = 'Évolution'
 

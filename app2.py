@@ -18,7 +18,8 @@ df = load_data_from_dropbox(DROPBOX_URL)
 def get_data():
     # Convertit les données en dictionnaire pour un retour JSON
     data = df.to_dict(orient='records')
-    return jsonify(data)
+    return jsonify(data
+                   )
 
 if __name__ == '__main__':
     app.run(debug=True)
