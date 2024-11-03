@@ -68,6 +68,12 @@ def show():
     ordered=True,  # Cela permet de garder l'ordre dans les catégories
     categories=sorted(filtered_df['Année_construction'].unique())  # Trie les années
    )
+        # Créer une colonne pour l'année de construction
+    filtered_df['Année_construction'] = pd.Categorical(
+        filtered_df['Année_construction'],
+        ordered=True,
+        categories=sorted(filtered_df['Année_construction'].unique())
+    )
 # Créer l'histogramme avec les étiquettes DPE triées
 
     # Colonne 1 : Détails du logement
