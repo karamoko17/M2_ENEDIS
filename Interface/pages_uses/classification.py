@@ -62,7 +62,9 @@ def show():
         }
 
         # Send the request to the Flask API
-        response = requests.post("http://127.0.0.1:5000/classification", json=input_data)
+        response = requests.post("https://performance-energetique-server.onrender.com/classification", json=input_data)
+        # response = requests.post("http://127.0.0.1:5000/classification", json=input_data)
+        # https://performance-energetique-server.onrender.com/
 
         # st.write(input_data)
         # st.write(response)

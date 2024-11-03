@@ -51,7 +51,10 @@ def show():
         }
 
         # Send the request to the Flask API
-        response = requests.post("http://127.0.0.1:5000/predict", json=input_data)
+        response = requests.post("https://performance-energetique-server.onrender.com/predict", json=input_data)
+        # response = requests.post("http://127.0.0.1:5000/predict", json=input_data)
+        # https://performance-energetique-server.onrender.com/
+
 
         if response.status_code == 200:
             prediction = response.json()['prediction']
