@@ -21,7 +21,7 @@ import plotly.express as px
 # }
 
 # df = pd.DataFrame(data)
-df = pd.read_csv('../data/data_carto.csv')
+df = pd.read_csv('../Data/data_carto.csv')
 
 def show():
     # Filtres dans la barre latérale
