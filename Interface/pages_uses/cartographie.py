@@ -14,9 +14,9 @@ st.set_page_config(page_title="Property Map", layout="wide")
 def load_data():
     
     # Charger les jeux de données
-    logements_existants = pd.read_csv("../Data/dpe-v2-logements-existants.csv")
-    logements_neufs = pd.read_csv("../Data/dpe-v2-logements-neufs.csv")
-    adresses = pd.read_csv("../Data/adresses-69.csv", sep=";")
+    logements_existants = pd.read_csv("./Data/dpe-v2-logements-existants.csv")
+    logements_neufs = pd.read_csv("./Data/dpe-v2-logements-neufs.csv")
+    adresses = pd.read_csv("./Data/adresses-69.csv", sep=";")
     
     # Ajouter des étiquettes pour l'année et le type de logement
     logements_neufs["Logement"] = "neuf"

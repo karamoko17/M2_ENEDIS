@@ -5,7 +5,7 @@ def show():
     st.header("À Propos")
 
     # Construire le chemin de l'image de manière dynamique
-    image_path = '../Interface/assets/img/dpe.jpg'
+    image_path = './Interface/assets/img/dpe.jpg'
 
     # Vérifier si l'image existe avant de l'afficher
     if os.path.exists(image_path):
