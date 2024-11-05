@@ -91,11 +91,12 @@ def show():
 
         # Camembert des étiquettes DPE
         # Graphique en ligne pour le coût total par surface habitable
-        fig_line2 = px.histogram(
+        fig_line2 = px.bar(
             filtered_df,
-            x='Année_construction',
-            y='Coût_total_5_usages',
-            histfunc="avg",
+            x='Logement',
+            
+            
+            # histfunc="avg",
             title="Coût moyen par Période de Construction",
             color_discrete_sequence=['#6a51a3']
         )
