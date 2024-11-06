@@ -37,14 +37,16 @@ def show_menu():
     # Boutons de navigation dans le menu latéral
     if st.sidebar.button("🏠 Accueil"):
         st.session_state.page = 'Accueil'
+    if st.sidebar.button("💡 Contexte"):
+        st.session_state.page = 'Contexte'
     if st.sidebar.button("🗺️ Cartographie"):
         st.session_state.page = 'Cartographie'
     if st.sidebar.button("📊 Prédiction de la consommation"):
         st.session_state.page = 'Prédiction'
-    if st.sidebar.button("📊 Prédiction de l'etiquette DPE"):
+    if st.sidebar.button("🏷️ Prédiction de l'etiquette DPE"):
         st.session_state.page = 'Classification'
-    if st.sidebar.button("📈 Évolution"):
-        st.session_state.page = 'Évolution'
+    if st.sidebar.button("📈 Analyses"):
+        st.session_state.page = 'Analyses'
     
     # Pied de page, placé avec du CSS
     st.sidebar.markdown("<div class='footer'>Awa Edina Nancy © 2024</div>", unsafe_allow_html=True)

@@ -24,12 +24,24 @@ import plotly.express as px
 df = pd.read_csv('./Data/data_carto.csv')
 
 def show():
+    # Titre
+    st.header("Analyses")
     # Filtres dans la barre latérale
-    # Filtres dans la barre latérale
-    st.sidebar.header("Filtres")
-    logement_filter = st.sidebar.multiselect("Type de Logement", options=df["Logement"].unique())
-    etiquette_filter = st.sidebar.multiselect("Étiquette DPE", options=df["Etiquette_DPE"].unique())
-    periode_filter = st.sidebar.multiselect("Période de Construction", options=df["Periode_construction"].unique())
+    st.write("##### Filtres")
+
+    # Créer trois colonnes
+    col1, col2, col3 = st.columns(3)
+    
+    # Filtres dans les colonnes
+    with col1:
+        logement_filter = st.multiselect("Type de Logement", options=df["Logement"].unique())
+        
+    with col2:
+        etiquette_filter = st.multiselect("Étiquette DPE", options=df["Etiquette_DPE"].unique())
+        
+    with col3:
+        periode_filter = st.multiselect("Période de Construction", options=df["Periode_construction"].unique())
+
 
     # Appliquer les filtres
     if not logement_filter and not etiquette_filter and not periode_filter:
