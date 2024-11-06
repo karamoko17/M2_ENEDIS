@@ -2,8 +2,8 @@ import streamlit as st
 import requests
 
 def show():
-    st.header("Prédiction du Prix de Vente")
-    st.write("Ici, vous pouvez estimer le prix de vente d'un bien immobilier.")
+    st.header("Prédiction de l'etiquette DPE")
+    st.write("Ici, vous pouvez estimer l'etiquette DPE de votre logement.")
 
     # Créer deux colonnes
     col1, col2 = st.columns(2)
@@ -41,7 +41,7 @@ def show():
 
 
     # Create a button to make the prediction
-    if st.button("Soumettre"):
+    if st.button("Prédire"):
 
         input_data = {
             "Conso_5_usages_par_m²_é_primaire": conso_5_usages_par_m2_e_primaire,

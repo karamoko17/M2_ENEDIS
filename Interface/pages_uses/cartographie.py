@@ -6,8 +6,6 @@ import datetime
 from streamlit_folium import folium_static
 import os
 
-# Configuration de Streamlit
-st.set_page_config(page_title="Property Map", layout="wide")
 
 # Mise en cache pour optimiser les performances
 #@st.cache_data
@@ -52,18 +50,18 @@ def create_map(data):
 
 # Fonction principale pour l'affichage de la cartographie
 def show():
-    st.title("Property Data Visualization")
+    st.header("Cartographie")
     df = load_data()
 
     # Options de filtrage dans Streamlit
-    st.sidebar.header("Filter Options")
-    logement_type = st.sidebar.multiselect("Select Property Type", options=df["Logement"].unique(), default=df["Logement"].unique())
+    st.write("##### Filtres")
+    logement_type = st.multiselect("Sélectionnez le type de la propriété", options=df["Logement"].unique(), default=df["Logement"].unique())
     filtered_df = df[df["Logement"].isin(logement_type)]
 
     # Afficher la carte si des données sont disponibles
     if not filtered_df.empty:
         folium_map = create_map(filtered_df)
-        st.write("### Property Map")
-        folium_static(folium_map)
+        #st.write("### Property Map")
+        folium_static(folium_map, width=1033, height=600)
     else:
         st.write("No data available for selected filters.")

@@ -1,11 +1,14 @@
 # app.py
 import streamlit as st
-from pages_uses import accueil, cartographie, prediction, evolution, navbar, topbar, classification
+from pages_uses import accueil, cartographie, prediction, navbar, classification, contexte, analyses
 import requests
 import time
 
 # URL du serveur
 url = "https://performance-energetique-server.onrender.com/"
+
+# Configuration pour la largeur de la page
+st.set_page_config(layout="wide") 
 
 def check_server_status(url, retries=100, delay=60):
     """Vérifie si le serveur est prêt (renvoie HTTP 200)."""
@@ -26,19 +29,20 @@ if check_server_status(url):
         st.session_state.page = 'Accueil'  # Page par défaut
 
     # Afficher le menu latéral
-    # topbar.show_topbar
     navbar.show_menu()
 
     # Affichage du contenu en fonction de la page sélectionnée
     if st.session_state.page == 'Accueil':
         accueil.show()
+    elif st.session_state.page == 'Contexte':
+        contexte.show()
     elif st.session_state.page == 'Cartographie':
         cartographie.show()
     elif st.session_state.page == 'Prédiction':
         prediction.show()
     elif st.session_state.page == 'Classification':
         classification.show()
-    elif st.session_state.page == 'Évolution':
-        evolution.show()
+    elif st.session_state.page == 'Analyses':
+        analyses.show()
 else:
     st.error("Le serveur n'est pas disponible. Veuillez réessayer plus tard.")

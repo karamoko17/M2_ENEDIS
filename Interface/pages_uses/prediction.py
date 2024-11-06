@@ -2,8 +2,8 @@ import streamlit as st
 import requests
 
 def show():
-    st.header("Prédiction du Prix de Vente")
-    st.write("Ici, vous pouvez estimer le prix de vente d'un bien immobilier.")
+    st.header("Prédiction de la consommation")
+    st.write("Ici, vous pouvez estimer la consommation energétique de votre logement.")
 
     # Créer deux colonnes
     col1, col2 = st.columns(2)
