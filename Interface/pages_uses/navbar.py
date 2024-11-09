@@ -16,7 +16,7 @@ def show_menu():
         .sidebar-title {
             font-size: 24px !important; /* Ajustez la taille selon vos besoins */
             text-align: center; 
-            color: black; 
+            color: green; 
             margin: 20px 0; /* Espacement autour du titre */
         }
         /* Style pour le pied de page */
@@ -31,9 +31,26 @@ def show_menu():
         </style>
     """, unsafe_allow_html=True)
     
-    # Titre de la sidebar
-    st.sidebar.markdown("<h1 class='sidebar-title'>GreenTech Solutions</h1>", unsafe_allow_html=True)
-    
+    # Charger la bibliothèque FontAwesome
+    st.markdown("""
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    """, unsafe_allow_html=True)
+
+    # Titre avec une icône dans le sidebar
+    st.sidebar.markdown("""
+        <h1 class='sidebar-title'>
+            <i class="fa fa-leaf"></i> GreenTech Solutions
+        </h1>
+    """, unsafe_allow_html=True)
+
+    # Liste déroulante dans le menu latéral pour la documentation
+    page_options = [
+            "📚 Rapport",
+            "📡 API",
+            "📑 Fonctionnelle",
+            "📘 Technique"
+        ]
+        
     # Boutons de navigation dans le menu latéral
     if st.sidebar.button("🏠 Accueil"):
         st.session_state.page = 'Accueil'
@@ -41,6 +58,8 @@ def show_menu():
         st.session_state.page = 'Contexte'
     if st.sidebar.button("🗺️ Cartographie"):
         st.session_state.page = 'Cartographie'
+    if st.sidebar.button("🗺️ Cartographie Proposition"):
+        st.session_state.page = 'Cartographie Proposition'
     if st.sidebar.button("📊 Prédiction de la consommation"):
         st.session_state.page = 'Prédiction'
     if st.sidebar.button("🏷️ Prédiction de l'etiquette DPE"):
@@ -48,6 +67,11 @@ def show_menu():
     if st.sidebar.button("📈 Analyses"):
         st.session_state.page = 'Analyses'
     
+
+
     # Pied de page, placé avec du CSS
     st.sidebar.markdown("<div class='footer'>Awa Edina Nancy © 2024</div>", unsafe_allow_html=True)
 
+    # Sélecteur pour la documentation
+    selected_page = st.sidebar.selectbox("Documentation", page_options)
+    st.session_state.page = selected_page

@@ -1,6 +1,6 @@
 # app.py
 import streamlit as st
-from pages_uses import accueil, cartographie, prediction, navbar, classification, contexte, analyses
+from pages_uses import accueil, cartographie, prediction, navbar, classification, contexte, analyses,  cartographie2,  documentationAPI,  documentationFonc,  documentationTech, documentationRapport 
 import requests
 import time
 
@@ -38,11 +38,21 @@ if check_server_status(url):
         contexte.show()
     elif st.session_state.page == 'Cartographie':
         cartographie.show()
+    elif st.session_state.page == 'Cartographie Proposition':
+        cartographie2.show()
     elif st.session_state.page == 'Prédiction':
         prediction.show()
     elif st.session_state.page == 'Classification':
         classification.show()
     elif st.session_state.page == 'Analyses':
         analyses.show()
+    elif st.session_state.page == "📡 API":
+        documentationAPI.show()
+    elif st.session_state.page ==  "📑 Fonctionnelle":
+        documentationFonc.show()
+    elif st.session_state.page == "📘 Technique":
+        documentationTech.show()
+    elif st.session_state.page == "📚 Rapport":
+        documentationRapport.show()
 else:
     st.error("Le serveur n'est pas disponible. Veuillez réessayer plus tard.")
