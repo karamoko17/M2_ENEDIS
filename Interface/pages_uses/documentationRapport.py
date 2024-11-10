@@ -2,7 +2,7 @@ import streamlit as st
 
 def show():
     # Spécifiez le chemin du fichier Markdown
-    file_path = "https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/Rapport_analyse.md"  # Remplacez ce chemin par le chemin réel de votre fichier
+    file_path = "Documentation/Rapport_analyse.md"  # Remplacez ce chemin par le chemin réel de votre fichier
 
     try:
         # Ouvrir et lire le contenu du fichier Markdown avec l'encodage UTF-8
