@@ -5,6 +5,8 @@ Ce projet a été initié dans le cadre du cours de Python et Machine Learning e
 
 L'application est disponible en ligne à l'adresse suivante : [https://performanceenergetiquea.streamlit.app/](https://performanceenergetiquea.streamlit.app/)
 
+Lien vidéo: https://youtu.be/2YLq5j4raHU
+
 Ce projet a été réalisé par les étudiants suivants :
 - **ADJARO PATOUSSI Edina**  
   *Email:* e.adjaro-patoussi@univ-lyon2.fr
