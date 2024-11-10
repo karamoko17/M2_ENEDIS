@@ -54,8 +54,8 @@ Dans cette section, nous détaillons le processus de développement des modèles
    La première étape dans l'élaboration de notre modèle a été le nettoyage des données cibles, c'est-à-dire les consommations. Ce nettoyage s'est fait en deux étapes :
    - Suppression des valeurs manquantes
    - Élimination des valeurs situées en dehors des 15ᵉ et 95ᵉ percentiles pour éviter les valeurs extrêmes qui pourraient biaiser le modèle.
-
-   ![Distribution des données](assets/distribution.png)
+ 
+   ![Distribution des données](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/distribution.png)
 
 2. **Normalisation des données numériques**  
    Nos données numériques étant exprimées dans des unités différentes, nous avons procédé à une normalisation pour ramener toutes les valeurs à la même échelle.
@@ -66,36 +66,28 @@ Dans cette section, nous détaillons le processus de développement des modèles
 4. **Sélection des variables explicatives**  
    Nous avons utilisé la corrélation pour sélectionner les variables explicatives pertinentes.
 
-   ![Corrélation des variables](assets/correlationRegression.png)
+   ![Corrélation des variables](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/correlationRegression.png)
 
 5. **Sélection des modèles**  
    Nous avons testé plusieurs modèles pour prédire la consommation :
 
    - **Régression linéaire**  
      Le premier modèle testé a été la régression linéaire, qui nous a donné une **RMSE de 218**.  
-     ![Graphique de la régression linéaire](assets/regression.png)  
-     ![Score de la régression linéaire](assets/scorerrEGRESSION.png)
+     ![Graphique de la régression linéaire](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/regression.png)  
+     ![Score de la régression linéaire](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/scorerrEGRESSION.png)
 
    - **Arbre de décision**  
-     ![Arbre de décision](assets/arbreDecision.png)  
-     ![Score de l'arbre de décision](assets/scoreArbre.png)
+     ![Arbre de décision](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/arbreDecision.png)  
+     ![Score de l'arbre de décision](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/scoreArbre.png)
 
    - **Random Forest Regressor**  
-     ![Random Forest](assets/randomForesst.png)  
-     ![Score du Random Forest](assets/scoreForest.png)
+     ![Random Forest](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/randomForesst.png)  
+     ![Score du Random Forest](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/scoreForest.png)
 
 6. **Modèle sélectionné et variables retenues**  
    Au vu des scores des différents modèles, nous avons opté pour le Random Forest. Nous avons également sélectionné les 10 variables les plus pertinentes pour optimiser la prédiction.  
 
-   ![Importance des variables](assets/ImportanceVarible.png)
-
- 
-
-- Présentation des choix de modèles, des métriques d'évaluation et des paramètres utilisés.
-- Comparaison des résultats des modèles avec des tableaux et interprétation des scores obtenus.
-
-## V. Métriques de Performance et KPI
-Les métriques choisies incluent la précision, le rappel et le F1-score, sélectionnées pour leur pertinence dans l’évaluation des modèles.
+   ![Importance des variables](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/ImportanceVarible.png)
 
 ## VI. Conclusions et Recommandations
 L’analyse montre que certaines variables influencent fortement l'étiquette DPE, avec le **RandomForestClassifier** offrant la meilleure précision. Des recommandations incluent l’optimisation des dépenses énergétiques et des politiques de rénovation. Les limitations incluent la qualité des données et les choix de modèles. Les améliorations possibles englobent l’utilisation de nouveaux algorithmes et un tuning plus approfondi des hyperparamètres.
