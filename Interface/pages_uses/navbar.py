@@ -67,12 +67,24 @@ def show_menu():
         st.session_state.page = 'Classification'
     if st.sidebar.button("📈 Analyses"):
         st.session_state.page = 'Analyses'
-        # Sélecteur de documentation sans affecter l'état de la page
-    selected_page = st.sidebar.selectbox("Documentation", page_options, index=0)
-    if selected_page != "Choisissez une page":
-        # pass
-        st.session_state.page = selected_page
-        selected_page = "Choisissez une page"
+    st.sidebar.markdown("<div class='footer'>Documentation</div>", unsafe_allow_html=True)
+
+    if st.sidebar.button("📡 API"):
+        st.session_state.page = '📡 API'
+    if st.sidebar.button("📑 Fonctionnelle"):
+        st.session_state.page = '📑 Fonctionnelle'
+    if st.sidebar.button("📘 Technique"):
+        st.session_state.page = '📘 Technique'
+    if st.sidebar.button("📚 Rapport"):
+        st.session_state.page = '📚 Rapport'
+    
+    # :
+    #     # Sélecteur de documentation sans affecter l'état de la page
+    # selected_page = st.sidebar.selectbox("Documentation", page_options, index=0)
+    # if selected_page != "Choisissez une page":
+    #     # pass
+    #     st.session_state.page = selected_page
+    #     selected_page = "Choisissez une page"
 
     # Pied de page avec le CSS
     st.sidebar.markdown("<div class='footer'>Awa Edina Nancy © 2024</div>", unsafe_allow_html=True)
