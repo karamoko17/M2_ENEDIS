@@ -47,7 +47,50 @@ Dans cette section, nous détaillons le processus de développement des modèles
 3. **Échantillonnage et modèles utilisés**  
    Les données ont été divisées en 70 % pour l’entraînement et 30 % pour le test. Les modèles utilisés incluent l’Arbre de décision, KNN, SMOTE, Random Forest, et la régression logistique. Le modèle **Random Forest** a donné la meilleure précision (99 %).
 
+
 ### B. Prédiction de la consommation
+
+1. **Nettoyage des données de régression**  
+   La première étape dans l'élaboration de notre modèle a été le nettoyage des données cibles, c'est-à-dire les consommations. Ce nettoyage s'est fait en deux étapes :
+   - Suppression des valeurs manquantes
+   - Élimination des valeurs situées en dehors des 15ᵉ et 95ᵉ percentiles pour éviter les valeurs extrêmes qui pourraient biaiser le modèle.
+
+   ![Distribution des données](assets/distribution.png)
+
+2. **Normalisation des données numériques**  
+   Nos données numériques étant exprimées dans des unités différentes, nous avons procédé à une normalisation pour ramener toutes les valeurs à la même échelle.
+
+3. **Encodage des variables catégorielles**  
+   Nous avons utilisé le label encoding pour transformer les variables catégorielles, facilitant ainsi leur exploitation dans le modèle.
+
+4. **Sélection des variables explicatives**  
+   Nous avons utilisé la corrélation pour sélectionner les variables explicatives pertinentes.
+
+   ![Corrélation des variables](assets/correlationRegression.png)
+
+5. **Sélection des modèles**  
+   Nous avons testé plusieurs modèles pour prédire la consommation :
+
+   - **Régression linéaire**  
+     Le premier modèle testé a été la régression linéaire, qui nous a donné une **RMSE de 218**.  
+     ![Graphique de la régression linéaire](assets/regression.png)  
+     ![Score de la régression linéaire](assets/scorerrEGRESSION.png)
+
+   - **Arbre de décision**  
+     ![Arbre de décision](assets/arbreDecision.png)  
+     ![Score de l'arbre de décision](assets/scoreArbre.png)
+
+   - **Random Forest Regressor**  
+     ![Random Forest](assets/randomForesst.png)  
+     ![Score du Random Forest](assets/scoreForest.png)
+
+6. **Modèle sélectionné et variables retenues**  
+   Au vu des scores des différents modèles, nous avons opté pour le Random Forest. Nous avons également sélectionné les 10 variables les plus pertinentes pour optimiser la prédiction.  
+
+   ![Importance des variables](assets/ImportanceVarible.png)
+
+ 
+
 - Présentation des choix de modèles, des métriques d'évaluation et des paramètres utilisés.
 - Comparaison des résultats des modèles avec des tableaux et interprétation des scores obtenus.
 
