@@ -2,7 +2,7 @@ import streamlit as st
 
 def show():
     # Spécifiez le chemin du fichier Markdown
-    file_path = "Documentation/Documentation_fonctionnelle.md"  # Remplacez ce chemin par le chemin réel de votre fichier
+    file_path = "./Documentation/Documentation_fonctionnelle.md"  # Remplacez ce chemin par le chemin réel de votre fichier
 
     try:
         # Ouvrir et lire le contenu du fichier Markdown avec l'encodage UTF-8
