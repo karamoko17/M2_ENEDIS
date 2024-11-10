@@ -137,6 +137,7 @@ def show():
 
         fig_chauffage_surface = px.histogram(
             filtered_df,
+            title="Répartition des étiquettes DPE par année de construction",
             x="Etiquette_DPE",  # Étiquette DPE comme variable catégorique
             y="Etiquette_DPE",  # Étiquette DPE comme variable catégorique
             

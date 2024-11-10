@@ -1,6 +1,6 @@
 # app.py
 import streamlit as st
-from pages_uses import accueil, cartographie, prediction, navbar, classification, contexte, analyses,  cartographie2,  documentationAPI,  documentationFonc,  documentationTech, documentationRapport 
+from pages_uses import accueil, prediction, navbar, classification, contexte, analyses,  cartographie2,  documentationAPI,  documentationFonc,  documentationTech, documentationRapport 
 import requests
 import time
 

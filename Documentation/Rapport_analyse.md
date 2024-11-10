@@ -22,16 +22,16 @@ Les données ont été chargées et explorées pour obtenir un aperçu général
 ### B. Analyse Exploratoire des Données
 Cette étape permet de comprendre la structure et les caractéristiques des données, d'identifier d'éventuels problèmes, et d'analyser la distribution de chaque variable. Afin de distinguer les logements anciens des nouveaux, une colonne "logement" a été ajoutée avec les valeurs "ancien" pour les logements existants et "neuf" pour les logements neufs. Une colonne "Année_construction" a aussi été ajoutée, avec la valeur "2024" pour les logements neufs.
 
-#### a. Colonnes communes et concaténation
-Une jointure a été réalisée pour permettre la prédiction à partir des deux datasets en vérifiant les colonnes communes, puis en concaténant les DataFrames `dpe_existant` et `dpe_neuf` en utilisant seulement les colonnes communes (`join='inner'`, `ignore_index=True`). Des colonnes additionnelles comme "Annee_reception_DPE", "Somme_coûts", "Coût chauffage en %", "passoire_energetique" ont été ajoutées pour enrichir l’analyse.
+#### 1. Colonnes communes et concaténation
+Une jointure a été réalisée pour permettre la prédiction à partir des deux datasets en vérifiant les colonnes communes, puis en concaténant les DataFrames `dpe_existant` et `dpe_neuf` en utilisant seulement les colonnes communes (`join='inner'`, `ignore_index=True`). Des colonnes additionnelles comme "Annee_reception_DPE", "Somme_coûts", "Coût chauffage en %" et "passoire_energetique" ont été ajoutées pour enrichir l’analyse.
 
-#### b. Statistiques descriptives
-Les statistiques descriptives (moyenne, écart-type, minimum, maximum, quartiles) ont été calculées pour identifier des anomalies, comme des valeurs extrêmes, et mieux comprendre la variabilité des données.
+#### 2. Statistiques descriptives
+Les statistiques descriptives (moyenne, écart-type, minimum, maximum et quartiles) ont été calculées pour identifier des anomalies, comme des valeurs extrêmes, et mieux comprendre la variabilité des données.
 
-#### c. Valeurs manquantes
+#### 3. Valeurs manquantes
 Pour identifier les colonnes nécessitant un traitement spécifique, la proportion de valeurs manquantes dans chaque colonne a été calculée. Cela a permis de déterminer si un remplacement, une imputation, ou une suppression était nécessaire avant de continuer.
 
-#### d. Nettoyage des colonnes
+#### 4. Nettoyage des colonnes
 Les colonnes contenant plus de 20 % de valeurs manquantes (seuil de 0.8) ont été supprimées. Après le nettoyage, les données concaténées ont été stockées dans un fichier Excel, `data69rhone.csv`, pour les étapes suivantes de classification et de régression.
 
 ## IV. Modèle de prédiction
@@ -39,13 +39,59 @@ Dans cette section, nous détaillons le processus de développement des modèles
 
 ### A. Prédiction de l’étiquette DPE
 1. **Nettoyage des données de classification**  
-   Les valeurs manquantes ont été imputées (mode pour les qualitatives, médiane pour les quantitatives), et la distribution de la variable cible, `Étiquette_DPE`, a été analysée.
+   Dans cette partie, les valeurs manquantes ont été imputées (mode pour les qualitatives, médiane pour les quantitatives), et la distribution de la variable cible, `Étiquette_DPE`, a été analysée.
 
-2. **Sélection des variables explicatives**  
+   ![(capture)](assets/distributionDPE.png)
+
+   Nous avons également visualisé la distribution de la Surface habitable en m².
+
+
+   ![alt text](assets/distributionSurface.png)
+
+2. **Encodage des variables catégorielles**  
    Les colonnes qualitatives et quantitatives ont été séparées, les valeurs manquantes remplacées, et les variables qualitatives encodées à l’aide de `OrdinalEncoder()`.
 
-3. **Échantillonnage et modèles utilisés**  
-   Les données ont été divisées en 70 % pour l’entraînement et 30 % pour le test. Les modèles utilisés incluent l’Arbre de décision, KNN, SMOTE, Random Forest, et la régression logistique. Le modèle **Random Forest** a donné la meilleure précision (99 %).
+3. **Sélection des variables explicatives**  
+   Nous avons sélectionné plusieurs variables clés pour prédire l'étiquette DPE, puis nous avons analysé les corrélations afin d'identifier les variables explicatives les plus pertinentes.
+
+   ![(capture)](assets/correlationClassification.png)
+
+4. **Échantillonnage et modèles utilisés**  
+   Les données ont été réparties en deux ensembles : 70 % pour l’entraînement du modèle et 30 % pour les tests.
+
+5. **Sélection des modèles** 
+   Nous avons testé plusieurs modèles pour prédire l'étiquette DPE:
+
+
+   -**Arbre de décision**
+   ![(capture)](assets/arbreMatrix.png)
+   ![(capture)](assets/arbreScore.png)
+   
+   -**KNN**
+   ![alt text](assets/knn.png)
+    
+   -**Random Forest**
+ ![alt text](assets/randomForest.png)
+   
+   -**KNN over sampling**
+ ![alt text](assets/knnoversampling.png)
+
+   -**Regression logistique**
+    
+  ![alt text](assets/logistiqueCOnfusion.png)
+  ![alt text](assets/logisqueScore.png)
+   
+   -**Xgboost**
+   ![alt text](assets/xgboot.png)
+ 
+
+
+
+1. **Modèle sélectionné et variables retenues**  
+   Le modèle **Random Forest** a atteint une précision élevée, avec une matrice de corrélation indiquant une meilleure performance dans la prédiction des données. Pour optimiser la prédiction, nous avons sélectionné les 15 variables les plus pertinentes.
+
+   (capture)
+
 
 
 ### B. Prédiction de la consommation
@@ -55,7 +101,7 @@ Dans cette section, nous détaillons le processus de développement des modèles
    - Suppression des valeurs manquantes
    - Élimination des valeurs situées en dehors des 15ᵉ et 95ᵉ percentiles pour éviter les valeurs extrêmes qui pourraient biaiser le modèle.
  
-   ![Distribution des données](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/distribution.png)
+   ![Distribution des données](assets/distribution.png)
 
 2. **Normalisation des données numériques**  
    Nos données numériques étant exprimées dans des unités différentes, nous avons procédé à une normalisation pour ramener toutes les valeurs à la même échelle.
@@ -66,28 +112,28 @@ Dans cette section, nous détaillons le processus de développement des modèles
 4. **Sélection des variables explicatives**  
    Nous avons utilisé la corrélation pour sélectionner les variables explicatives pertinentes.
 
-   ![Corrélation des variables](Documentation/assets/correlationRegression.png)
+   ![Corrélation des variables](assets/correlationRegression.png)
 
 5. **Sélection des modèles**  
    Nous avons testé plusieurs modèles pour prédire la consommation :
 
    - **Régression linéaire**  
      Le premier modèle testé a été la régression linéaire, qui nous a donné une **RMSE de 218**.  
-     ![Graphique de la régression linéaire](./Documentation/assets/regression.png)  
-     ![Score de la régression linéaire](./Documentation/assets/scorerrEGRESSION.png)
+     ![Graphique de la régression linéaire](assets/regression.png)  
+     ![Score de la régression linéaire](assets/scorerrEGRESSION.png)
 
    - **Arbre de décision**  
-     ![Arbre de décision](./Documentation/assets/arbreDecision.png)  
-     ![Score de l'arbre de décision](./Documentation/assets/scoreArbre.png)
+     ![Arbre de décision](assets/arbreDecision.png)  
+     ![Score de l'arbre de décision](assets/scoreArbre.png)
 
    - **Random Forest Regressor**  
-     ![Random Forest](./Documentation/assets/randomForesst.png)  
-     ![Score du Random Forest](./Documentation/assets/scoreForest.png)
+     ![Random Forest](assets/randomForesst.png)  
+     ![Score du Random Forest](assets/scoreForest.png)
 
 6. **Modèle sélectionné et variables retenues**  
    Au vu des scores des différents modèles, nous avons opté pour le Random Forest. Nous avons également sélectionné les 10 variables les plus pertinentes pour optimiser la prédiction.  
 
-   ![Importance des variables](./Documentation/assets/ImportanceVarible.png)
+   ![Importance des variables](assets/ImportanceVarible.png)
 
 ## VI. Conclusions et Recommandations
-L’analyse montre que certaines variables influencent fortement l'étiquette DPE, avec le **RandomForestClassifier** offrant la meilleure précision. Des recommandations incluent l’optimisation des dépenses énergétiques et des politiques de rénovation. Les limitations incluent la qualité des données et les choix de modèles. Les améliorations possibles englobent l’utilisation de nouveaux algorithmes et un tuning plus approfondi des hyperparamètres.
+L’analyse révèle que certaines variables influencent fortement l’étiquette DPE et la consommation énergétique. Le **RandomForestClassifier** et le **RandomForestRegressor** ont offert les meilleures précisions. Les recommandations incluent l’optimisation des dépenses énergétiques et l’adoption de politiques de rénovation. Parmi les limitations figurent la qualité des données et les choix de modèles. Les améliorations possibles incluent l'exploration de nouveaux algorithmes et un ajustement plus poussé des hyperparamètres.

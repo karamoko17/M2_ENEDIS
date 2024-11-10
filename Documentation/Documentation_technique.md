@@ -3,7 +3,7 @@
 
 ## Aperçu Général
 
-![Architecture du système](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/architecture.jpeg)
+![Architecture du système](/Documentation/assets/architecture.jpeg)
 
 Cette architecture représente notre système de prévision de la consommation énergétique et de classification des logements en fonction de leur performance énergétique (DPE). Elle intègre des sources de données externes provenant d'Enedis, des modèles de machine learning pour la classification et la régression, une API pour l'interfaçage et une interface utilisateur pour la visualisation des données et la cartographie.
 
