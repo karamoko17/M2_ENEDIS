@@ -18,16 +18,15 @@ Cette architecture représente notre système de prévision de la consommation �
 
 ### 3. Modèles de Machine Learning
    - **Classification** : Ce modèle est utilisé pour classifier les logements selon leur étiquette DPE (Diagnostic de Performance Énergétique). Il a été construit en utilisant l'algorithme Random Forest avec 10 arbres. Nous avons obtenu les scores suivants :
-    https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/
      ![Scores de Classification](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/scoreClassification.png)
 
    - **Régression** : Ce modèle prédit la consommation énergétique des logements en utilisant des algorithmes de régression. Il a été construit en utilisant l'algorithme Random Forest Regressor avec 5 arbres. Nous avons obtenu les scores suivants :
-     ![Scores de Régression](assets/scoreForest.png)
+     ![Scores de Régression](https://github.com/Adjaro/Performance_Energetique/blob/513c6c352aa6ea15a43e25d5595235ed2671ea01/Documentation/assets/scoreForest.png)
 
 ### 4. API Flask
 **API FLASK** : Une API développée avec Flask permet d'exposer les modèles de machine learning et les données en tant que services web. Cette API permet de faire des prédictions en temps réel via des appels API externes. Elle communique avec les modèles de classification et de régression et renvoie les résultats de prédiction aux applications clientes.
 
-[La documentation est disponible ici](https://performance-energetique-server.onrender.com)
+[La documentation est disponible ici](https://performance-energetique-server.onrender.com/apidocs)
 
 **Endpoints** : L'API comporte différents endpoints pour :
    `https://performance-energetique-server.onrender.com`
