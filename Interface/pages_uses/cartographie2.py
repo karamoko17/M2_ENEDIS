@@ -7,7 +7,7 @@ def show():
     # st.title("Carte des Logements à Lyon avec Couleurs DPE et Filtres")
 
     # Charger les données
-    df = pd.read_csv('../Data/data_carto.csv')
+    df = pd.read_csv('./Data/data_carto.csv')
 
     # Filtrer et nettoyer les données
     df_cleaned = df[['lat', 'lon', 'Logement', 'Adresse_(BAN)', 'Code_postal_(BAN)', 'Coût_total_5_usages', 'Periode_construction', 'Coût_chauffage', 'Surface_habitable_logement', 'Etiquette_DPE']].dropna(subset=['lat', 'lon', 'Etiquette_DPE'])

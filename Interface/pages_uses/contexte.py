@@ -7,7 +7,7 @@ def show():
 
     # Charger les données
     try:
-        df = pd.read_csv('../Data/data_carto.csv')
+        df = pd.read_csv('./Data/data_carto.csv')
     except FileNotFoundError:
         st.error("Le fichier de données est introuvable. Veuillez vérifier le chemin.")
         return

@@ -53,7 +53,7 @@ def show():
     st.header("Cartographie")
     # df = load_data()
     # df = pd.DataFrame(data)
-    df = pd.read_csv('../Data/data_carto.csv')
+    df = pd.read_csv('./Data/data_carto.csv')
 
     # Options de filtrage dans Streamlit
     st.write("##### Filtres")
