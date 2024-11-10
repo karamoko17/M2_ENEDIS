@@ -57,10 +57,10 @@ def show_menu():
         st.session_state.page = 'Accueil'
     if st.sidebar.button("💡 Contexte"):
         st.session_state.page = 'Contexte'
+    # if st.sidebar.button("🗺️ Cartographie"):
+    #     st.session_state.page = 'Cartographie'
     if st.sidebar.button("🗺️ Cartographie"):
         st.session_state.page = 'Cartographie'
-    if st.sidebar.button("🗺️ Cartographie Proposition"):
-        st.session_state.page = 'Cartographie Proposition'
     if st.sidebar.button("📊 Prédiction de la consommation"):
         st.session_state.page = 'Prédiction'
     if st.sidebar.button("🏷️ Prédiction de l'étiquette DPE"):

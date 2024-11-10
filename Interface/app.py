@@ -36,9 +36,9 @@ if check_server_status(url):
         accueil.show()
     elif st.session_state.page == 'Contexte':
         contexte.show()
+    # elif st.session_state.page == 'Cartographie':
+    #     cartographie.show()
     elif st.session_state.page == 'Cartographie':
-        cartographie.show()
-    elif st.session_state.page == 'Cartographie Proposition':
         cartographie2.show()
     elif st.session_state.page == 'Prédiction':
         prediction.show()
