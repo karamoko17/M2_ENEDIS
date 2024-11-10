@@ -13,7 +13,7 @@ Ce projet a été réalisé par les étudiants suivants :
 - **RANDRIAMIARIJAONA Herinantenainasoa (Nancy)**  
   *Email:* herinantenainasoa.randriamiarijaona@univ-lyon2.fr
 
-## Installation
+## Installation de l'application
 
 ### 1. Cloner le projet :  
 Cloner le dépôt GitHub en utilisant la commande suivante :
