@@ -44,6 +44,12 @@ ls_variables_explicatives_classification = [
     'Année_construction'
 ]
 
+
+@app.route("/", methods=["GET"])
+def home():
+    return "Bienvenue sur l'API de prévision de consommation énergétique !Vous pouvez utiliser l'API en envoyant un fichier CSV contenant les données de votre logement à l'URL /predict ou /classification pour obtenir une prédiction de consommation énergétique ou une classification de performance énergétique."
+
+
 @app.route("/data", methods=["GET"])
 @swag_from({
     'parameters': [
